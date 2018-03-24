@@ -3,6 +3,7 @@ let rollNo = [];
 let passoutYear = [];
 let stream = [];
 let index=0,pos=0;
+let nameNC= [],rollNoC=[],passoutYearC=[],streamC=[];
 
 $(document).ready(function(){
     $("#editButton").click(function(){
@@ -23,42 +24,42 @@ $(document).ready(function(){
 });
 
 function submitDetails(){
-  var correct_way = /^[A-Za-z]+$/;
 
-    nameN.push(document.getElementById("formName").value);
-    rollNo.push(document.getElementById("formRollNO").value);
-    passoutYear.push(document.getElementById("formPassoutYear").value);
-    stream.push(document.getElementById("formStream").value);
+  nameNC.push(document.getElementById("formName").value);
+  rollNoC.push(document.getElementById("formRollNO").value);
+  passoutYearC.push(document.getElementById("formPassoutYear").value);
+  streamC.push(document.getElementById("formStream").value);
 
-
+//	console.log(nameNC+rollNoC+passoutYearC+streamC);
 <!-- Validations for name -->
-    if(nameN == "") {
-      alert("Name Can't be Empty");
-      return false;
+    if(nameNC == "" || rollNoC == "" || passoutYearC == "" || streamC == "") {
+      alert("Field Can't be Empty");
+      nameNC=[];
+      rollNoC=[];
+      passoutYearC=[];
+      streamC=[];
+      return;
+    }
+    // if(!nameNC.match("/^[A-Za-z]+$/"))
+    // {
+    //   alert("ONly");
+    //   return;
+    // }
+
+    else {
+      nameN.push(document.getElementById("formName").value);
+      rollNo.push(document.getElementById("formRollNO").value);
+      passoutYear.push(document.getElementById("formPassoutYear").value);
+      stream.push(document.getElementById("formStream").value);
+      nameNC=[];
+      rollNoC=[];
+      passoutYearC=[];
+      streamC=[];
     }
 
-<!-- end of Validations for name-->
+console.log(nameNC+rollNoC+passoutYearC+streamC);
 
-<!-- Validations for rollno -->
-    if(rollNo == "") {
-      alert("Roll Can't be Empty");
-      return false;
-    }
-<!-- end of Validations for rollno-->
 
-<!-- Validations for year -->
-        if(passoutYear == "") {
-        alert("Year Can't be Empty");
-          return false;
-        }
-<!-- end of Validations for year-->
-
-<!-- Validations for stream -->
-        if(stream == "") {
-            alert("Stream Can't be Empty");
-              return false;
-        }
-<!-- end of Validations for year-->
 
     let tableBody = document.getElementById("tableBody");
 
@@ -87,6 +88,8 @@ function submitDetails(){
     tr.appendChild(tdSelect);
     tableBody.appendChild(tr);
     index++;
+
+    $('.formBody').trigger('reset');
 }
 
 function editDetails(){
