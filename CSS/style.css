@@ -4,7 +4,7 @@
 
 .tb-row{
     background: #000000;
-	color: white;
+
 }
 
 .modal-body{
@@ -17,6 +17,7 @@
 
 th, td{
     text-align: center;
+	color: black;
 	
 }
 
