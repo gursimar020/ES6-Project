@@ -32,8 +32,3 @@ body{
 h1,small{
 	color: white;
 }
-
-.bg {
-    background-image: url("1.jpg");
-    height: 100%; 
-}
